@@ -67,21 +67,21 @@ export default function InviteModal({ onClose }) {
       style={{ background: "rgba(15,17,20,0.45)" }}
     >
       {/* Panel */}
-      <div className="relative bg-white h-full w-full max-w-[480px] flex flex-col shadow-2xl animate-slide-in overflow-hidden">
+      <div className="relative bg-white h-full w-full max-w-[480px] flex flex-col shadow-2xl animate-slide-in overflow-hidden rounded-l-[32px]">
         {/* Header */}
-        <div className="px-6 pt-6 pb-4 border-b border-gray-100 flex-shrink-0">
+        <div className="px-6 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-[18px] font-bold text-[#111827]">
+              <h2 className="text-xl font-bold text-[#0F1114]">
                 Invite Tenants
               </h2>
-              <p className="text-sm text-gray-500 mt-0.5">
+              <p className="text-xs font-medium text-[#0F111499] mt-[3px]">
                 Send an invite so the tenant can create an account and connect.
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-gray-100 transition text-gray-500 flex-shrink-0 mt-0.5"
+              className="p-2 rounded-full border border-[#0F11141A] rounded-full hover:bg-gray-100 transition text-gray-500 flex-shrink-0 mt-0.5"
             >
               <XIcon />
             </button>
@@ -89,10 +89,10 @@ export default function InviteModal({ onClose }) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5">
+        <div className="flex-1 overflow-y-auto px-6">
           {/* Email */}
           <div>
-            <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#0F1114] uppercase tracking-wider mb-[5px]">
               Email
             </label>
             <input
@@ -100,21 +100,21 @@ export default function InviteModal({ onClose }) {
               placeholder="TENANT@DOMAIN.COM"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              className="w-full border border-[#0F11141A] rounded-full px-5 py-[15px] text-xs text-[#111827] placeholder-[#0F111466] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
             />
           </div>
 
           {/* Property + Unit */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
             <div>
-              <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#0F1114] uppercase mb-[5px] mt-[14px]">
                 Property
               </label>
               <div className="relative">
                 <select
                   value={property}
                   onChange={(e) => setProperty(e.target.value)}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition"
+                  className="w-full border border-[#0F11141A] rounded-full px-5 py-[15px] text-xs text-[#0F1114] font-semibold appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition"
                 >
                   {PROPERTIES.map((p) => (
                     <option key={p} value={p}>
@@ -122,13 +122,13 @@ export default function InviteModal({ onClose }) {
                     </option>
                   ))}
                 </select>
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#0F1114]">
                   <ChevDown />
                 </span>
               </div>
             </div>
             <div>
-              <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-bold text-[#0F1114] uppercase mb-[5px] mt-[14px]">
                 Unit
               </label>
               <input
@@ -136,27 +136,27 @@ export default function InviteModal({ onClose }) {
                 placeholder="UNIT 4 / MAIN / ADU"
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                className="w-full border border-[#0F11141A] rounded-full px-5 py-[15px] text-xs text-[#0F111466] placeholder-[#0F111466] font-semibold appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition"
               />
             </div>
           </div>
 
           {/* Message */}
           <div>
-            <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-[#0F1114] uppercase mb-[5px] mt-[14px]">
               Message
             </label>
             <textarea
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-xs text-[#0F1114] font-semibold appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition resize-none"
             />
           </div>
 
           {/* Demo info box */}
-          <div className="bg-blue-50 border border-blue-100 rounded-lg px-4 py-3">
-            <p className="text-sm text-blue-600 font-medium leading-snug">
+          <div className="bg-blue-50 border border-blue-100 rounded-lg px-4 py-3 mt-4">
+            <p className="text-sm text-[#004CE5] font-bold">
               Demo: This does not send email. In production, this would deliver
               a secure invite link.
             </p>

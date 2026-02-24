@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import documentFile from "../../assets/icons/document-file.svg";
 
 /* ── Icons ─────────────────────────────────────────────── */
 function XIcon() {
@@ -84,23 +85,6 @@ function ChevDown() {
       strokeLinejoin="round"
     >
       <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-function FileIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-      <polyline points="13 2 13 9 20 9" />
     </svg>
   );
 }
@@ -241,7 +225,7 @@ export default function AddTenantModal({ onClose }) {
             <Label>Profile Photo</Label>
             <div className="flex items-center gap-3">
               <label className="flex items-center gap-2 px-4 py-2 bg-[#111827] rounded-full text-xs font-bold text-white cursor-pointer hover:bg-[#1f2937] transition">
-                <FileIcon />
+                <img src={documentFile} alt="file" />
                 Choose File
                 <input
                   type="file"
@@ -508,7 +492,7 @@ export default function AddTenantModal({ onClose }) {
             <Label>Documents</Label>
             <div className="flex items-center gap-3">
               <label className="flex items-center gap-2 px-4 py-2 bg-[#111827] rounded-full text-xs font-bold text-white cursor-pointer hover:bg-[#1f2937] transition">
-                <FileIcon />
+                <img src={documentFile} alt="file" />
                 Choose File
                 <input
                   type="file"
