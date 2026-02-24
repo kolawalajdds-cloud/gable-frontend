@@ -5,7 +5,7 @@ export default function CTABanner() {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-white border-b border-[#0F11141A] mb-16">
+    <section className="w-full bg-white  mb-16">
       <div
         className="max-w-[1268px] mx-auto  
       bg-[radial-gradient(55.56%_100%_at_50%_0%,#FFFFFF_0%,#EDF3FA_100%)] "
