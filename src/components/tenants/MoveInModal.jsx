@@ -85,7 +85,7 @@ const ALL_TENANTS = [
 function FieldLabel({ children, className = "" }) {
   return (
     <label
-      className={`block text-xs font-bold text-[#0F1114] uppercase tracking-wider mb-[5px] ${className}`}
+      className={`block text-xs font-bold text-[#0F1114] uppercase mb-[5px] ${className}`}
     >
       {children}
     </label>
@@ -134,10 +134,10 @@ function DateField({ value, onChange }) {
 /* ── Section header ──────────────────────────────────────── */
 function SectionHeader({ title, subtitle }) {
   return (
-    <div className="mt-6 mb-3">
+    <div className="mt-[16px] mb-3">
       <h3 className="text-base font-bold text-[#0F1114]">{title}</h3>
       {subtitle && (
-        <p className="text-xs text-[#0F111480] font-medium mt-0.5">
+        <p className="text-xs text-[#0F111499] font-medium mt-0.5">
           {subtitle}
         </p>
       )}
@@ -197,7 +197,7 @@ export default function MoveInModal({ onClose }) {
       style={{ background: "rgba(15,17,20,0.45)" }}
     >
       {/* Panel */}
-      <div className="relative bg-white h-full w-full max-w-[480px] flex flex-col shadow-2xl animate-slide-in overflow-hidden rounded-l-[32px]">
+      <div className="relative bg-white h-full w-full max-w-[544px] flex flex-col shadow-2xl animate-slide-in overflow-hidden rounded-l-[32px]">
         {/* ── Header ── */}
         <div className="px-6 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-start justify-between gap-4">
@@ -219,14 +219,14 @@ export default function MoveInModal({ onClose }) {
         {/* ── Scrollable body ── */}
         <div className="flex-1 overflow-y-auto px-6 pb-4">
           {/* SELECT PROPERTY */}
-          <div className="mt-5">
+          <div className="">
             <FieldLabel>Select Property</FieldLabel>
             <SelectField
               value={property}
               onChange={(e) => setProperty(e.target.value)}
               options={PROPERTIES}
             />
-            <p className="text-xs text-[#0F111480] font-medium mt-1.5">
+            <p className="text-xs text-[#0F111499] font-bold mt-[5px]">
               Select a property dropdown
             </p>
           </div>

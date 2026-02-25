@@ -20,9 +20,9 @@ export const NAV_ITEMS = [
   { label: "Dashboard", icon: icoDashboard, href: "/dashboard" },
   { label: "Portfolio", icon: icoPortfolio, href: "/portfolio" },
   { label: "Tenants", icon: icoTenants, href: "/tenants" },
-  { label: "Listings", icon: icoListings, href: "#" },
-  { label: "Applications", icon: icoApplications, href: "#" },
-  { label: "Accounting", icon: icoAccounting, href: "#" },
+  { label: "Listings", icon: icoListings, href: "/listings" },
+  { label: "Applications", icon: icoApplications, href: "/applications" },
+  { label: "Accounting", icon: icoAccounting, href: "/accounting" },
   { label: "Documents", icon: icoDocuments, href: "#" },
   { label: "Maintenance", icon: icoMaintenance, href: "#" },
   { label: "Inspections", icon: icoInspections, href: "#" },
@@ -95,8 +95,8 @@ export function DotsIcon() {
 export function SearchIcon({ color = "#9CA3AF" }) {
   return (
     <svg
-      width="18"
-      height="18"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
@@ -275,7 +275,7 @@ function Topbar({ onMenuClick }) {
             <input
               type="text"
               placeholder="Search"
-              className="bg-transparent border-none outline-none text-sm text-gray-600 placeholder-gray-400 w-full"
+              className="bg-transparent border-none outline-none text-xs  font-semibold text-[#00091A] placeholder-[#0F111466] w-full"
             />
           </div>
         </div>

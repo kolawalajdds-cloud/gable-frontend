@@ -4,6 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: "#a3a3a3";
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: "#a3a3a3";
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  background: transparent !important; /* Firefox */
+}
+
 @layer base {
   body {
     font-family: "Figtree", sans-serif;

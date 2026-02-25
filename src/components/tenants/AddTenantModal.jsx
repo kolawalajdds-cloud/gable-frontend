@@ -92,7 +92,7 @@ function ChevDown() {
 /* ── Shared field components ───────────────────────────── */
 function Label({ children }) {
   return (
-    <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+    <label className="block text-xs font-bold text-[#0F1114] mb-[5px] uppercase mb-[5px]">
       {children}
     </label>
   );
@@ -110,7 +110,7 @@ function Input({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${className}`}
+      className={`w-full border border-[#0F11141A] rounded-full px-[15px] py-5 text-xs text-[#111827] font-semibold uppercase placeholder-[#0F111466] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${className}`}
     />
   );
 }
@@ -120,11 +120,11 @@ function Select({ value, onChange, children }) {
       <select
         value={value}
         onChange={onChange}
-        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition"
+        className="w-full border border-[#0F11141A] rounded-full px-5 py-[15px] text-sm text-[#111827] font-semibold uppercase appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition"
       >
         {children}
       </select>
-      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#0F1114]">
         <ChevDown />
       </span>
     </div>
@@ -136,7 +136,7 @@ function SectionAddBtn({ label, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="flex items-center gap-1.5 px-4 py-2 border border-gray-300 rounded-full text-xs font-bold text-[#111827] hover:bg-gray-50 transition uppercase tracking-wide"
+      className="flex items-center gap-1.5 px-5 py-3 border border-[#0F111499] rounded-full text-xs font-extrabold text-[#0F1114] hover:bg-gray-50 transition uppercase "
     >
       <PlusIcon /> {label}
     </button>
@@ -148,8 +148,12 @@ function SectionRow({ title, subtitle, btnLabel, onAdd }) {
   return (
     <div className="flex items-center justify-between py-1">
       <div>
-        <p className="text-[15px] font-bold text-[#111827]">{title}</p>
-        {subtitle && <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>}
+        <p className="text-base font-bold text-[#0F1114]">{title}</p>
+        {subtitle && (
+          <p className="text-xs font-medium text-[#0F111499] mt-1">
+            {subtitle}
+          </p>
+        )}
       </div>
       {btnLabel && <SectionAddBtn label={btnLabel} onClick={onAdd} />}
     </div>
@@ -197,9 +201,9 @@ export default function AddTenantModal({ onClose }) {
       className="fixed inset-0 z-50 flex justify-end"
       style={{ background: "rgba(15,17,20,0.45)" }}
     >
-      <div className="relative bg-white h-full w-full max-w-[520px] flex flex-col shadow-2xl animate-slide-in">
+      <div className="relative bg-white h-full w-full max-w-[520px] flex flex-col shadow-2xl animate-slide-in rounded-l-[32px]">
         {/* Header */}
-        <div className="px-6 pt-6 pb-4 border-b border-gray-100 flex-shrink-0">
+        <div className="px-6 pt-5  border-b border-gray-100 flex-shrink-0">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="text-[18px] font-bold text-[#111827]">
@@ -222,10 +226,12 @@ export default function AddTenantModal({ onClose }) {
         <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5">
           {/* Profile photo */}
           <div>
-            <Label>Profile Photo</Label>
-            <div className="flex items-center gap-3">
-              <label className="flex items-center gap-2 px-4 py-2 bg-[#111827] rounded-full text-xs font-bold text-white cursor-pointer hover:bg-[#1f2937] transition">
-                <img src={documentFile} alt="file" />
+            <div className="text-xs font-bold text-[#0F1114] mb-[5px]">
+              Profile Photo
+            </div>
+            <div className="flex items-center gap-3 border border-[#0F11141A] rounded-lg py-[12px] px-4">
+              <label className="flex items-center gap-2 px-[14px] py-[9px]  bg-[#111827] rounded-full text-xs font-bold text-white cursor-pointer hover:bg-[#1f2937] transition">
+                <img className="w-4 h-4" src={documentFile} alt="file" />
                 Choose File
                 <input
                   type="file"
@@ -234,11 +240,11 @@ export default function AddTenantModal({ onClose }) {
                   onChange={(e) => setPhotoFile(e.target.files?.[0] || null)}
                 />
               </label>
-              <span className="text-sm text-gray-400">
+              <span className="text-xs font-bold text-[#0F111499]">
                 {photoFile ? photoFile.name : "No file chosen"}
               </span>
             </div>
-            <p className="text-xs text-gray-400 mt-1.5">
+            <p className="text-xs font-bold text-[#0F111499] mt-[5px]">
               Optional (demo: not uploaded anywhere).
             </p>
           </div>
@@ -445,7 +451,7 @@ export default function AddTenantModal({ onClose }) {
                 onChange={(e) => setBalance(e.target.value)}
                 type="number"
               />
-              <p className="text-xs text-gray-400 mt-1.5">
+              <p className="text-xs text-[#0F111499] font-bold mt-[10px]">
                 Use negative for credit, positive for amount due.
               </p>
             </div>
@@ -456,7 +462,7 @@ export default function AddTenantModal({ onClose }) {
                 placeholder="Add internal notes (access, preferences, etc.)"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#111827] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                className="w-full border border-[#0F11141A] rounded-xl px-5 py-[15px] text-xs text-[#111827] font-semibold placeholder-[#0F111499] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
               />
             </div>
           </div>
@@ -481,16 +487,16 @@ export default function AddTenantModal({ onClose }) {
 
           {/* Store documents */}
           <div className="border-t border-gray-100 pt-4">
-            <div className="mb-3">
+            <div className="mb-[22px]">
               <p className="text-[15px] font-bold text-[#111827]">
                 Store documents
               </p>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-xs font-medium text-[#0F111499] mt-1">
                 Upload leases, insurance, IDs, templates, and more.
               </p>
             </div>
             <Label>Documents</Label>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-[12px] border border-[#0F11141A] rounded-lg py-[12px] px-4">
               <label className="flex items-center gap-2 px-4 py-2 bg-[#111827] rounded-full text-xs font-bold text-white cursor-pointer hover:bg-[#1f2937] transition">
                 <img src={documentFile} alt="file" />
                 Choose File
@@ -500,11 +506,11 @@ export default function AddTenantModal({ onClose }) {
                   onChange={(e) => setDocFile(e.target.files?.[0] || null)}
                 />
               </label>
-              <span className="text-sm text-gray-400">
+              <span className="text-xs font-bold text-[#0F111499]">
                 {docFile ? docFile.name : "No file chosen"}
               </span>
             </div>
-            <p className="text-xs text-gray-400 mt-1.5">
+            <p className="text-xs font-bold text-[#0F111499] mt-1.5">
               Upload (demo: files are not stored).
             </p>
           </div>

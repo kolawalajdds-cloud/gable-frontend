@@ -67,7 +67,7 @@ export default function InviteModal({ onClose }) {
       style={{ background: "rgba(15,17,20,0.45)" }}
     >
       {/* Panel */}
-      <div className="relative bg-white h-full w-full max-w-[480px] flex flex-col shadow-2xl animate-slide-in overflow-hidden rounded-l-[32px]">
+      <div className="relative bg-white h-full w-full max-w-[544px] flex flex-col shadow-2xl animate-slide-in overflow-hidden rounded-l-[32px]">
         {/* Header */}
         <div className="px-6 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
           <div className="flex items-start justify-between gap-4">
