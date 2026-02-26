@@ -250,7 +250,7 @@ export default function AccountingPage() {
                 ].map((col) => (
                   <th
                     key={col}
-                    className="px-5 py-3.5 text-left text-xs font-bold text-[#0F1114CC] uppercase tracking-wide whitespace-nowrap"
+                    className="px-5 py-3.5 text-left text-sm font-bold text-[#0F1114] uppercase whitespace-nowrap"
                   >
                     {col}
                   </th>

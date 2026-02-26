@@ -23,7 +23,7 @@ export const NAV_ITEMS = [
   { label: "Listings", icon: icoListings, href: "/listings" },
   { label: "Applications", icon: icoApplications, href: "/applications" },
   { label: "Accounting", icon: icoAccounting, href: "/accounting" },
-  { label: "Documents", icon: icoDocuments, href: "#" },
+  { label: "Documents", icon: icoDocuments, href: "/documents" },
   { label: "Maintenance", icon: icoMaintenance, href: "#" },
   { label: "Inspections", icon: icoInspections, href: "#" },
   { label: "Calendar", icon: icoCalendar, href: "#" },

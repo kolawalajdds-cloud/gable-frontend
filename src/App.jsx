@@ -18,6 +18,7 @@ import TenantsPage from "./pages/TenantsPage";
 import ListingsPage from "./pages/ListingsPage";
 import ApplicationsPage from "./pages/ApplicationsPage";
 import AccountingPage from "./pages/AccountingPage";
+import DocumentsPage from "./pages/DocumentsPage";
 import { OpenAccountProvider } from "./context/OpenAccountContext";
 
 // Wraps all open-account routes with shared form context
@@ -57,6 +58,9 @@ function App() {
 
         {/* Accounting */}
         <Route path="/accounting" element={<AccountingPage />} />
+
+        {/* Documents */}
+        <Route path="/documents" element={<DocumentsPage />} />
 
         {/* Open Account — multi-step flow (all share OpenAccountProvider) */}
         <Route path="/open-account" element={<OpenAccountRoot />}>

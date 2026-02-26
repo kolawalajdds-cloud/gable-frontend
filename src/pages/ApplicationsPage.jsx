@@ -2,6 +2,8 @@ import { useState } from "react";
 import DashboardLayout, { SearchIcon } from "../components/DashboardLayout";
 import NewApplicationModal from "../components/applications/NewApplicationModal";
 import InviteApplicantModal from "../components/applications/InviteApplicantModal";
+import upload from "../assets/icons/upload.svg";
+import EditIcon from "../assets/icons/Edit.svg";
 
 /* ── Sample Data ──────────────────────────────────────── */
 const APPLICANTS = [
@@ -70,54 +72,20 @@ const APPLICANTS = [
 const TABS = ["ALL", "NEW", "SCREENING", "APPROVED", "DENIED"];
 
 /* ── Icons ───────────────────────────────────────────── */
-function CheckCircleIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <circle cx="12" cy="12" r="12" fill="#0F1114" />
-      <path
-        d="M7 12.5l3.5 3.5 6.5-7"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
 function XSmallIcon() {
   return (
     <svg
-      width="12"
-      height="12"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke="#0F1114"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
-
-function PencilIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#6B7280"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
     </svg>
   );
 }
@@ -142,8 +110,8 @@ function ChevDown() {
 function MailOutIcon() {
   return (
     <svg
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -153,25 +121,6 @@ function MailOutIcon() {
     >
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
-    </svg>
-  );
-}
-
-function ExportIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="17 8 12 3 7 8" />
-      <line x1="12" y1="3" x2="12" y2="15" />
     </svg>
   );
 }
@@ -210,14 +159,14 @@ function ApplicationDetails({ applicant }) {
 
       {/* Applicant summary */}
       <div className="border border-[#0F11141A] rounded-xl p-4">
-        <p className="text-[10px] font-extrabold text-[#0F111499] uppercase tracking-wider mb-2">
+        <p className="text-xs font-semibold text-[#0F111499] uppercase mb-1">
           Selected Applicant
         </p>
-        <p className="text-base font-extrabold text-[#0F1114]">
+        <p className="text-base font-bold text-[#0F1114]">
           {applicant.name} • {applicant.property}
           {applicant.unit !== "-" ? ` • ${applicant.unit}` : ""}
         </p>
-        <p className="text-xs font-medium text-[#0F1114CC] mt-1">
+        <p className="text-xs font-semibold text-[#0F111499] mt-[6px]">
           {applicant.moveIn} move-in
           {applicant.score ? ` • Score ${applicant.score}` : ""}
           {applicant.status ? ` • ${applicant.status}` : ""}
@@ -230,10 +179,10 @@ function ApplicationDetails({ applicant }) {
             return (
               <span
                 key={c}
-                className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-bold border ${
+                className={`flex items-center gap-1 px-3 py-[6px] rounded-full text-[10px] font-semibold border ${
                   done
-                    ? "border-[#0F1114] text-[#0F1114] bg-white"
-                    : "border-[#0F11141A] text-[#0F111499] bg-white"
+                    ? "border-[#0FBC5F80] bg-[#0FBC5F1A] text-[#00813C] bg-white"
+                    : "border-[#004CE580] text-[#004CE5] bg-[#004CE51A]"
                 }`}
               >
                 {c}
@@ -258,9 +207,9 @@ function ApplicationDetails({ applicant }) {
       </div>
 
       {/* Contact + Notes */}
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <p className="text-[10px] font-extrabold text-[#0F111499] uppercase tracking-wider mb-2">
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="border border-[#0F11141A] p-[14px] rounded-xl">
+          <p className="text-xs font-semibold text-[#0F111499] uppercase  mb-2">
             Contact
           </p>
           <p className="text-base font-bold text-[#0F1114]">
@@ -270,7 +219,7 @@ function ApplicationDetails({ applicant }) {
             {applicant.email}
           </p>
         </div>
-        <div>
+        <div className="border border-[#0F11141A] p-[14px] rounded-xl">
           <p className="text-[10px] font-extrabold text-[#0F111499] uppercase tracking-wider mb-2">
             Notes
           </p>
@@ -281,7 +230,7 @@ function ApplicationDetails({ applicant }) {
       </div>
 
       {/* Action buttons */}
-      <div className="flex flex-wrap items-center gap-3 pt-1">
+      <div className="flex flex-wrap justify-end items-end gap-2 pt-6">
         <button className="px-5 py-3 border border-[#0F1114] rounded-full text-xs font-extrabold text-[#0F1114] hover:bg-gray-50 transition uppercase tracking-wide">
           Request Docs
         </button>
@@ -315,10 +264,10 @@ function NextActions() {
 
       {/* Recommended checks */}
       <div>
-        <p className="text-base font-bold text-[#0F1114] mb-3">
+        <p className="text-base font-bold text-[#0F1114] mb-[10px]">
           Recommended checks
         </p>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-[7px]">
           {[
             "Verify income (pay stubs / bank statements)",
             "Employment verification",
@@ -328,9 +277,9 @@ function NextActions() {
           ].map((item) => (
             <li
               key={item}
-              className="flex items-start gap-2 text-sm font-medium text-[#0F1114CC]"
+              className="flex items-start gap-2 text-xs font-bold text-[#0F111499]"
             >
-              <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#0F1114CC] flex-shrink-0" />
+              <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#0F111499] flex-shrink-0" />
               {item}
             </li>
           ))}
@@ -366,7 +315,7 @@ export default function ApplicationsPage() {
           </button>
           <button
             onClick={() => setShowInvite(true)}
-            className="px-5 py-[13px] border border-[#0F1114] rounded-full text-xs font-extrabold text-[#0F1114] bg-white hover:bg-gray-50 transition uppercase tracking-wide"
+            className="px-5 py-[13px] border border-[#0F1114] rounded-full text-xs font-extrabold text-white bg-[#0F1114] hover:bg-gray-50 transition uppercase tracking-wide"
           >
             Invite Applicant
           </button>
@@ -383,14 +332,14 @@ export default function ApplicationsPage() {
       {/* ── Main Card ── */}
       <div className="bg-white rounded-3xl border border-[#0F11141A] mb-4">
         {/* Filter row */}
-        <div className="px-5 pt-5 pb-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#0F11141A]">
+        <div className="px-5 py-7 flex flex-wrap items-center justify-between gap-3 border-b border-[#0F11141A]">
           {/* Tabs */}
           <div className="flex items-center gap-1 flex-wrap">
             {TABS.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-full text-xs font-extrabold transition uppercase tracking-wide ${
+                className={`px-4 py-[9px] border border-[#0F11141A] rounded-full text-xs font-extrabold transition uppercase tracking-wide  ${
                   activeTab === tab
                     ? "bg-[#0F1114] text-white"
                     : "text-[#0F1114CC] hover:bg-gray-100"
@@ -416,7 +365,7 @@ export default function ApplicationsPage() {
             </div>
             {/* All Properties */}
             <div className="relative">
-              <select className="appearance-none bg-white border border-[#E5E7EB] rounded-full pl-4 pr-8 py-2 text-xs font-bold text-[#0F1114] focus:outline-none cursor-pointer">
+              <select className="appearance-none bg-white border border-[#E5E7EB] rounded-full pl-4 pr-8 py-[13px] text-xs font-bold text-[#0F1114] focus:outline-none cursor-pointer">
                 <option>All Properties</option>
                 <option>123 Oak St • Unit 4</option>
                 <option>55 Crystal Falls Dr</option>
@@ -428,7 +377,7 @@ export default function ApplicationsPage() {
             </div>
             {/* All Status */}
             <div className="relative">
-              <select className="appearance-none bg-white border border-[#E5E7EB] rounded-full pl-4 pr-8 py-2 text-xs font-bold text-[#0F1114] focus:outline-none cursor-pointer">
+              <select className="appearance-none bg-white border border-[#E5E7EB] rounded-full pl-4 pr-8 py-[13px] text-xs font-bold text-[#0F1114] focus:outline-none cursor-pointer">
                 <option>All Status</option>
                 <option>New</option>
                 <option>Screening</option>
@@ -440,11 +389,11 @@ export default function ApplicationsPage() {
               </span>
             </div>
             {/* Icon buttons */}
-            <button className="p-2.5 border border-[#0F11141A] rounded-full hover:bg-gray-50 transition text-[#0F1114]">
+            <button className="p-2.5 border border-[#0F11141A] rounded-full hover:bg-gray-50 transition text-white bg-[#0F1114]">
               <MailOutIcon />
             </button>
-            <button className="p-2.5 border border-[#0F11141A] rounded-full hover:bg-gray-50 transition text-[#0F1114]">
-              <ExportIcon />
+            <button className="p-2.5 border border-[#0F11141A] rounded-full hover:bg-gray-50 transition text-white bg-[#0F1114]">
+              <img src={upload} alt="upload" className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -453,7 +402,7 @@ export default function ApplicationsPage() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[700px]">
             <thead>
-              <tr className="border-b border-[#0F11141A]">
+              <tr className="border-b border-[#0F11141A] bg-[#FAFAFA]">
                 {[
                   "Applicant",
                   "Property",
@@ -466,7 +415,7 @@ export default function ApplicationsPage() {
                 ].map((col) => (
                   <th
                     key={col}
-                    className="px-5 py-3.5 text-left text-xs font-bold text-[#0F1114CC] uppercase tracking-wide whitespace-nowrap"
+                    className="px-5 py-3.5 text-left text-sm font-bold text-[#0F1114] uppercase whitespace-nowrap"
                   >
                     {col}
                   </th>
@@ -485,28 +434,28 @@ export default function ApplicationsPage() {
                   {/* Applicant */}
                   <td className="px-5 py-4">
                     <p className="text-sm font-bold text-[#0F1114]">{a.name}</p>
-                    <p className="text-xs font-medium text-[#0F1114CC] mt-0.5">
+                    <p className="text-xs font-semibold text-[#0F1114]/60 mt-0.5">
                       {a.email}
                     </p>
                   </td>
                   {/* Property */}
-                  <td className="px-5 py-4 text-sm font-medium text-[#0F1114]">
+                  <td className="px-5 py-4 text-sm font-semibold text-[#0F1114]/60">
                     {a.property}
                   </td>
                   {/* Unit */}
-                  <td className="px-5 py-4 text-sm font-medium text-[#0F1114]">
+                  <td className="px-5 py-4 text-sm font-semibold text-[#0F1114]/60">
                     {a.unit}
                   </td>
                   {/* Move-in */}
-                  <td className="px-5 py-4 text-sm font-medium text-[#0F1114]">
+                  <td className="px-5 py-4 text-sm font-semibold text-[#0F1114]/60">
                     {a.moveIn}
                   </td>
                   {/* Income */}
-                  <td className="px-5 py-4 text-sm font-medium text-[#0F1114]">
+                  <td className="px-5 py-4 text-sm font-semibold text-[#0F1114]/60">
                     {a.income}
                   </td>
                   {/* Score */}
-                  <td className="px-5 py-4 text-sm font-medium text-[#0F1114]">
+                  <td className="px-5 py-4 text-sm font-semibold text-[#0F1114]/60">
                     {a.score || "—"}
                   </td>
                   {/* Status */}
@@ -525,12 +474,12 @@ export default function ApplicationsPage() {
                   <td className="px-5 py-4">
                     <div className="flex items-center gap-2">
                       <button
-                        className="p-1.5 rounded-full bg-[#0F1114] text-white hover:opacity-80 transition"
+                        className="p-[6px] rounded-full bg-[#0F1114] text-white hover:opacity-80 transition"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <svg
-                          width="12"
-                          height="12"
+                          width="20"
+                          height="20"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="white"
@@ -542,16 +491,16 @@ export default function ApplicationsPage() {
                         </svg>
                       </button>
                       <button
-                        className="p-1.5 rounded-full border border-[#0F11141A] text-[#6B7280] hover:bg-gray-100 transition"
+                        className="p-[6px] rounded-full  text-[#6B7280] hover:bg-gray-100 transition bg-[#F2F2F2]"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <XSmallIcon />
                       </button>
                       <button
-                        className="p-1.5 text-[#6B7280] hover:text-[#374151] transition"
+                        className="p-[6px] rounded-full border border-[#0F11141A] hover:bg-gray-100 transition"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <PencilIcon />
+                        <img src={EditIcon} alt="edit" className="w-5 h-5" />
                       </button>
                     </div>
                   </td>
